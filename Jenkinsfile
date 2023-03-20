@@ -1,7 +1,8 @@
 pipeline {
-    agent any
-    triggers {
-        pollSCM 'H/5 * * * *'
+    agent {
+        docker {
+            image "python:3.9-slim"
+        }
     }
     stages {
         stage('Hello World') {
@@ -12,12 +13,12 @@ pipeline {
         }
         stage('I am') {
             steps {
-                sh 'echo "I am Jenkins."'
+                sh 'which python'
             }
         }
         stage('Bye World') {
             steps {
-                sh 'echo "Goodbye!"'
+                sh 'python --version'
             }
         }
     }
