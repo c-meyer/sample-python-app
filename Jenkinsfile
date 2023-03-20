@@ -10,6 +10,11 @@ pipeline {
             }
 
         }
+        stage('I am') {
+            steps {
+                sh 'echo "I am Jenkins."'
+            }
+        }
         stage('Bye World') {
             steps {
                 sh 'echo "Goodbye!"'
